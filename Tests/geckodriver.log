@@ -1,0 +1,15 @@
+1613787524341	geckodriver	INFO	Listening on 127.0.0.1:49501
+1613787527378	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\Harshock\\AppData\\Local\\Temp\\rust_mozprofileI1jDXF"
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613787530609	Marionette	INFO	Listening on port 49509
+1613787531075	Marionette	WARN	TLS certificate errors will be ignored for this session
+1613787531093	Marionette	ERROR	[15] No reply from Marionette:Register
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1613787532386	Marionette	INFO	Stopped listening on port 49509
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x230037,name=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
