@@ -16,6 +16,6 @@ class FillFormTest(BaseTest):
 
     def test_fill_form(self):
         self.IntegrationTestHomePage = IntegrationTestHomePage(self.driver)
-        text = self.IntegrationTestHomePage.fill_employee_name(PageLocators.EmployeeName, TestData.EMPLOYEE_NAME)
+        text = self.IntegrationTestHomePage.fill_employee_name(PageLocators.EmployeeName, text="Hello")
         # text = self.IntegrationTestHomePage.fill_employee_name().getText()
         Assert.assertTrue(text.equals(TestData.EMPLOYEE_NAME))

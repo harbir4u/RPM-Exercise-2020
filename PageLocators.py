@@ -4,9 +4,9 @@ This file contains locators for all the pages in the Integration Test Applicatio
 from selenium.webdriver.common.by import By
 
 
-class PageLocators:
+class PageLocators(object):
     # --- Integration Test Home Page Locators ---
-    EmployeeName = (By.ID, "FL:_ctl0:_ctl3")
+    EmployeeName = By.ID, "FL:_ctl0:_ctl3"
     Summary = (By.ID, "FL:_ctl1:_ctl4")
     Department = (By.XPATH, '//select[@id="FL:_ctl3:_ctl3"]/option')
     Salary = (By.ID, "FL: _ctl4:_ctl3")

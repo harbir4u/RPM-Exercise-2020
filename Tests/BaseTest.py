@@ -17,6 +17,6 @@ class BaseTest(unittest.TestCase):
         # Load browser in maximized window
         self.driver.maximize_window()
 
-    def tearDown(self):
+    #def tearDown(self):
         # Quit browser session.
-        self.driver.quit()
+     #   self.driver.quit()

@@ -7,7 +7,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class BasePage:
+class BasePage(object):
 
     # This function is called every time a new object of the BasePage class is created.
     def __init__(self, driver):
@@ -23,7 +23,7 @@ class BasePage:
         assert web_element.text == element_text
 
     # This function enters text in a web element whose locator is passed to it.
-    def enter_text(self, by_locator, text):
+    def enter_text(self, *by_locator, text):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
     # This function checks if the web element whose locator has been passed to it, is enabled or not and returns

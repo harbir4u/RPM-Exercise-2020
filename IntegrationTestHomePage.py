@@ -11,11 +11,13 @@ from BasePage import BasePage
 class IntegrationTestHomePage(BasePage):
 
     def __init__(self, driver):
-        super().__init__(driver)
+        self.locator = PageLocators
+        self.testdata = TestData
+        super(IntegrationTestHomePage, self).__init__(driver)
         self.driver.get(TestData.BASE_URL)
 
     def fill_employee_name(self, by_locator, text):
-        self.enter_text(by_locator, text)
+        self.enter_text(*self.locator.EmployeeName, text)
 
     def fill_summary(self):
         self.driver.enter_text(PageLocators.Summary, TestData.SUMMARY)
