@@ -4,7 +4,7 @@ test classes to open a new browser session, perform actions and quit browser ses
 """
 import unittest
 from selenium import webdriver
-from TestData import TestData
+from utilities.test_data import TestData
 
 
 class BaseTest(unittest.TestCase):
@@ -15,8 +15,8 @@ class BaseTest(unittest.TestCase):
         self.driver = webdriver.Firefox(executable_path=TestData.GECKODRIVER_PATH)
 
         # Load browser in maximized window
-        self.driver.maximize_window()
+        # self.driver.maximize_window()
+        self.driver.get("https://rpmsoftware.com/hiring/2020/integration-test/form-edit.html")
 
-    #def tearDown(self):
-        # Quit browser session.
-     #   self.driver.quit()
+    def tearDown(self):
+        self.driver.quit()

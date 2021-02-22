@@ -1,10 +1,10 @@
 """
-This file contains the child class of BasePage class and contains specific functions for use in the Tests
+This file contains the child class of BasePage class and contains specific functions for use in the tests
 """
 from selenium.webdriver.support.select import Select
-from PageLocators import PageLocators
-from TestData import TestData
-from BasePage import BasePage
+from utilities.page_locators import PageLocators
+from utilities.test_data import TestData
+from pages.base_page import BasePage
 
 
 # Contains functions that perform actions on the Integration Test HomePage
@@ -13,14 +13,13 @@ class IntegrationTestHomePage(BasePage):
     def __init__(self, driver):
         self.locator = PageLocators
         self.testdata = TestData
-        super(IntegrationTestHomePage, self).__init__(driver)
-        self.driver.get(TestData.BASE_URL)
+        super().__init__(driver)
 
-    def fill_employee_name(self, by_locator, text):
-        self.enter_text(*self.locator.EmployeeName, text)
+    def fill_employee_name(self, text):
+        self.enter_text(self.locator.EmployeeName, text)
 
-    def fill_summary(self):
-        self.driver.enter_text(PageLocators.Summary, TestData.SUMMARY)
+    def fill_summary(self, text):
+        self.enter_text(self.locator.Summary, text)
 
     def select_department_from_dropdown(self, value):
         dropdownlist = self.driver.find_elements(PageLocators.Department)

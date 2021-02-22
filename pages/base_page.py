@@ -2,16 +2,17 @@
 This file contains the parent class for all the pages in the Integration Test.
 It contains all generic functions available to all pages.
 """
-from telnetlib import EC
-from selenium.webdriver.support.select import Select
+from selenium.webdriver.support import  expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage(object):
 
     # This function is called every time a new object of the BasePage class is created.
-    def __init__(self, driver):
+    def __init__(self, driver, base_url='https://rpmsoftware.com/hiring/2020/integration-test/form-edit.html'):
+        self.base_url = base_url
         self.driver = driver
+        self.timeout = 4
 
     # This function clicks on web element whose locator is passed to it.
     def click(self, by_locator):
@@ -23,7 +24,7 @@ class BasePage(object):
         assert web_element.text == element_text
 
     # This function enters text in a web element whose locator is passed to it.
-    def enter_text(self, *by_locator, text):
+    def enter_text(self, by_locator, text):
         return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).send_keys(text)
 
     # This function checks if the web element whose locator has been passed to it, is enabled or not and returns
