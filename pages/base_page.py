@@ -2,7 +2,8 @@
 This file contains the parent class for all the pages in the Integration Test.
 It contains all generic functions available to all pages.
 """
-from selenium.webdriver.support import  expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 
 
@@ -22,6 +23,12 @@ class BasePage(object):
     def assert_element_text(self, by_locator, element_text):
         web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         assert web_element.text == element_text
+
+    def select_from_dropdown(self, by_locator, element_text):
+        web_element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+        select = Select(web_element)
+        select.select_by_visible_text(element_text)
+        # select.select_by_value(element_value)
 
     # This function enters text in a web element whose locator is passed to it.
     def enter_text(self, by_locator, text):
